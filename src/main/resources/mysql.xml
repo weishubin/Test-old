@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        ">
+
+
+    <!-- 数据库配置 -->
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+        <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+        <property name="url" value="jdbc:log4jdbc:mysql://10.10.170.161:3306/test?useUnicode=true"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+        <property name="validationQuery" value="SELECT 1"></property>
+        <property name="maxActive" value="2"></property>
+        <property name="maxIdle" value="1"></property>
+        <property name="minIdle" value="1"></property>
+        <property name="initialSize" value="1"></property>
+        <property name="maxWait" value="1000"></property>
+        <property name="testOnConnect" value="false"></property>
+        <property name="testOnBorrow" value="false"></property>
+        <property name="testOnReturn" value="false"></property>
+        <property name="testWhileIdle" value="true"></property>
+        <property name="validationQueryTimeout" value="1"></property>
+        <!--检查空闲连接的间隔,应设置为数据库min(wait_timeout,connect_timeout)的一半-->
+        <property name="timeBetweenEvictionRunsMillis" value="5000"></property>
+        <!--空闲连接超过此时间会被抛弃，应设置为数据库min(wait_timeout,connect_timeout)值-->
+        <property name="minEvictableIdleTimeMillis" value="10000"></property>
+        <!--检查连接的最大频率，单位毫秒，应设置为数据库min(wait_timeout,connect_timeout)的一半-->
+        <property name="validationInterval" value="5000"></property>
+    </bean>
+
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.weishubin.test.mapper" />
+    </bean>
+
+
+</beans>
