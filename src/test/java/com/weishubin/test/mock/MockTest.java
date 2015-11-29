@@ -1,7 +1,6 @@
 package com.weishubin.test.mock;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.mockito.Mockito.*;
 

@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jca.context.ResourceAdapterApplicationContext;
 
 /**
  * Created by Administrator on 2015/11/20.
