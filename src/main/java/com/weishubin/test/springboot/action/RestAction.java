@@ -38,4 +38,10 @@ public class RestAction {
 
         return resp;
     }
+
+
+    @RequestMapping("/e")
+    public void error() {
+        throw new RuntimeException();
+    }
 }
