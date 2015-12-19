@@ -33,8 +33,8 @@ public class UnitilsTest extends UnitilsJUnit4 {
 
     @Test
     public void test() {
-        MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
-        map.add("abc", 1);
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+        map.add("abc", "1");
         String s = restTemplate.getForObject(url, String.class, map);
         FolderRespDTO resp = JsonMapper.nonDefaultMapper().fromJson(s, FolderRespDTO.class);
         System.out.println(JsonMapper.nonDefaultMapper().toJson(resp));

@@ -3,8 +3,10 @@ package com.weishubin.test.beanutil;
 import com.weishubin.test.common.bean.Sample;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.apache.commons.beanutils.converters.IntegerConverter;
+import org.springframework.cglib.beans.BeanCopier;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
@@ -39,6 +41,7 @@ public class BeanTest {
         map.put("date", "2015-06-06");
         BeanUtils.populate(s2, map);
         System.out.println(s2.getId());
+
     }
 
     private static void init() {
