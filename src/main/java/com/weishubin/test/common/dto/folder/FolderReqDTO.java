@@ -1,15 +1,11 @@
 package com.weishubin.test.common.dto.folder;
 
-import com.youku.java.raptor.common.utils.HttpClientProxy;
-import org.springframework.beans.factory.annotation.Required;
-
 import javax.validation.constraints.NotNull;
 
 /**
  * 创建专辑时的请求对象
  */
 public class FolderReqDTO {
-    private HttpClientProxy p;
     @NotNull
     private Integer uid;
     private String title;
